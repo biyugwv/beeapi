@@ -1,0 +1,83 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/admin/{name}": {
+            "get": {
+                "tags": [
+                    "admin"
+                ],
+                "description": "find admin",
+                "operationId": "AdminController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "description": "the admin you want to get",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{admin} models.Admin"
+                    },
+                    "403": {
+                        "description": ":name is empty"
+                    }
+                }
+            }
+        },
+        "/ws/join": {
+            "get": {
+                "tags": [
+                    "ws"
+                ],
+                "description": "a member join  this chat room",
+                "operationId": "WsController.Join",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/ws/test": {
+            "get": {
+                "tags": [
+                    "ws"
+                ],
+                "description": "It's a test uri",
+                "operationId": "WsController.Test",
+                "responses": {
+                    "200": {
+                        "description": "{string} test success"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "admin",
+            "description": "Operations about Users\n"
+        },
+        {
+            "name": "ws",
+            "description": "Operations about Users\n"
+        }
+    ]
+}
